@@ -2,6 +2,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<<<<<<< HEAD
 <script>
 $(document).ready(function(){
     $("button").click(function(){
@@ -21,3 +22,55 @@ $(document).ready(function(){
 
 </body>
 </html>
+=======
+<script type="text/javascript" src="scripts.js"></script>
+<script>
+$(document).ready(function(){
+    var x = 0;
+    var y = 0;
+    drawCircle("canvas",150);
+    $("button").click(function(){
+        for (var i=0; i<50000; i++) {
+        x = getRandom(300);
+        y = getRandom(300);
+        var isIn = isInCircle(x,y,150);
+        document.getElementById("random").innerHTML = isIn;
+        if (isIn == "In") {
+            cntIn += 1;
+        } else {
+            cntOut += 1;
+        }
+        counter += 1;
+        drawPoint(x,y,"canvas");
+        document.getElementById("in").innerHTML = cntIn;
+        document.getElementById("out").innerHTML = cntOut;
+        document.getElementById("pi").innerHTML = 4*cntIn/counter  ;
+        }
+    });
+});
+</script>
+<script>
+    var radius = 150;
+    var counter = 0;
+    var cntIn = 0;
+    var cntOut = 0;
+    
+</script>
+</head>
+<body>
+
+<h2>Computing PI value using Monte Carlo Algorithm</h2>
+
+<div>
+<span style="border:1px"><span>Fell In or Out? </span><span id="random">In</span></span>
+<span>Nr. In: </span><span id="in">0</span>
+<span>Nr. Out: </span><span id="out">0</span>
+<b><span>PI value: </span><span id="pi">0</span></b>
+</div>
+<hr>
+<button>Compute PI</button>
+<hr>
+<canvas id="canvas" width="300" height="300" style="border:1px solid #d3d3d3;"/>
+</body>
+</html>
+>>>>>>> refs/remotes/origin/master
